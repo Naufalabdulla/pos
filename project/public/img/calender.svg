@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="266" height="203.638" viewBox="0 0 266 203.638">
+  <g id="Group_1" data-name="Group 1" transform="translate(-327 -157.362)">
+    <g id="Rectangle_1" data-name="Rectangle 1" transform="translate(327 175)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="8">
+      <rect width="266" height="186" stroke="none"/>
+      <rect x="4" y="4" width="258" height="178" fill="none"/>
+    </g>
+    <g id="Rectangle_2" data-name="Rectangle 2" transform="translate(327 175)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="8">
+      <rect width="266" height="35" stroke="none"/>
+      <rect x="4" y="4" width="258" height="27" fill="none"/>
+    </g>
+    <g id="Rectangle_5" data-name="Rectangle 5" transform="translate(346 221)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="8">
+      <rect width="32" height="35" stroke="none"/>
+      <rect x="4" y="4" width="24" height="27" fill="none"/>
+    </g>
+    <g id="Rectangle_3" data-name="Rectangle 3" transform="translate(566 157.362) rotate(90)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="8">
+      <rect width="21.138" height="15" stroke="none"/>
+      <rect x="4" y="4" width="13.138" height="7" fill="none"/>
+    </g>
+    <g id="Rectangle_4" data-name="Rectangle 4" transform="translate(369 157.362) rotate(90)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="8">
+      <rect width="21.138" height="15" stroke="none"/>
+      <rect x="4" y="4" width="13.138" height="7" fill="none"/>
+    </g>
+  </g>
+</svg>
