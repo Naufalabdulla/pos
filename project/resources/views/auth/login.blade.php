@@ -33,7 +33,7 @@
                   <div class="col-md-8">
                     <div class="row"><div class="col-md-4 offset-md-4 mt-4 ps-3"><h4>Login</h4></div></div>
                     <div class="card-body">
-                        <form method="POST" action="{{ route('login') }}">
+                        <form method="POST" action="{{--{{ route('login') }}--}}#">
                             @csrf
                             <div class="row mb-3">
                                 <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label>

@@ -89,3 +89,7 @@ Route::get('/inventory', function(){
 Route::get('/product', function(){
     return view('product');
 })->name('product');
+
+Route::get('/hahalol', function(){
+    return view('auth.login');
+});
