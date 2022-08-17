@@ -63,6 +63,14 @@
         <h6 class="col-1 mt-1">Credit</h6>
         <h6 class="col-1 mt-1">Limit</h6>
       </div>
+      @foreach ($report as $item)
+          <div class="row border-bottom p-2 mx-2 mb-1">
+          <div class="col-2">{{ $item->id }}</div>
+          <div class="col-2"></div>
+          <div class="col-2 text-danger"></div>
+          <div class="col-1 text-success"></div>
+          </div>  
+        @endforeach
     </div>
 
     <div class="tab-pane fade" id="category-tab-pane" role="tabpanel" aria-labelledby="category-tab" tabindex="0">

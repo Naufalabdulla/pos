@@ -15,27 +15,76 @@
   </div>
 @endsection
 @section('container')
-    <div class="content">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header">{{ __('Dashboard') }}</div>
-
-                    <div class="card-body">
-                        @if (session('status'))
-                            <div class="alert alert-success" role="alert">
-                                {{ session('status') }}
-                            </div>
-                        @endif
-
-                        {{ __('You are logged in!') }}
-                    </div>
-
-                    <div class="card-footer">
-                        <a href="{{ route('logout') }}" class="btn btn-danger">Logout</a>
-                    </div>
-                </div>
+    <div class="row gx-4 gy-2 bg-light py-2">
+      <div class="col-md-10">
+        <div class="border bg-white p-2">
+          <div class="d-flex">
+            <h4 class="flex-grow-1">Weeakly sell</h4>
+    
+            <div class="form-check form-switch">
+                <label class="form-check-label" for="swtcbtn">tax</label>
+                <input class="form-check-input" type="checkbox" role="switch" id="swtcbtn">
             </div>
+          </div>
+
+          <div id="chart" style="height: 300px"></div>
+          <!-- Charting library -->
+          <script src="https://unpkg.com/echarts/dist/echarts.min.js"></script>
+          <!-- Chartisan -->
+          <script src="https://unpkg.com/@chartisan/echarts/dist/chartisan_echarts.js"></script>
+
+          <script>
+            const chart = new Chartisan({
+                el : '#chart', 
+                url : "@chart('sample')",
+            });
+          </script>
         </div>
-    </div>    
+      </div> 
+
+      
+      <div class="col-md-2 ">
+        <div class="border bg-white p-2">
+          <h4 class="border-bottom">Today</h4>
+          <p>Sales</p>
+          <p>313</p>
+          <p>Transaction</p>
+          <p>4</p>
+          <p>Quantity</p>
+          <p>2</p>
+          <p>New Customer</p>
+          <p>0</p>
+          </div>
+      </div>
+
+
+      <div class="col-md-6 ">
+        <div class="border bg-white p-2">
+          <h4 class="border-bottom">Today's Report</h4>
+          <div class="border-bottom">
+            <div class="d-flex">
+            <p class="flex-grow-1">Best seller</p>
+            <p>Quantity</p>
+            </div>
+
+            <div class="d-flex">
+            <h6 class="flex-grow-1">Collar breze</h6>
+            <p>8</p>
+            </div>
+          </div>
+
+          <div class="border-bottom">
+            <div class="d-flex">
+            <p class="flex-grow-1">Best Outlet</p>
+            <p>Number of Transaction</p>
+            </div>
+
+            <div class="d-flex">
+            <h6 class="flex-grow-1">Outlet 2</h6>
+            <p>12</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>   
 @endsection

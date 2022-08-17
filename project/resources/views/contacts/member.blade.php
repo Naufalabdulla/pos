@@ -4,11 +4,14 @@
   <h6 class="col mt-1">non</h6>
   <h6 class="col mt-1">email</h6>
 </div>
-@foreach ($contacts as $item)
-<div class="border-bottom p-2 mb-1">
-  <input class="form-check-input" type="checkbox" value="" id="check">
-  <label for="check">
-    <a href="{{ route('show') }}">{{$item->name}}</a>
-  </label>  
-</div>          
+@foreach ($member as $item)
+@if ($item->contact_id == 1)
+  <div class="border-bottom p-2 mb-1">
+    <input class="form-check-input" type="checkbox" value="" id="check">
+    <label for="check">
+      <a href="#">{{$item->name}}</a>
+    </label>  
+  </div>
+@endif  
 @endforeach
+

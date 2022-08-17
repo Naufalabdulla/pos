@@ -13,7 +13,7 @@
                         <button type="button" data-bs-target="#carousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
                       </div>
                       <div class="carousel-inner">
-                        <div class="carousel-item active" data-bs-interval="10000">
+                        <div class="carousel-item active" data-bs-interval="7000">
                           <img src="..." class="d-block w-100" alt="">
                           <div class="carousel-caption d-none d-md-block">
                             <p>slide one</p>
@@ -33,7 +33,7 @@
                   <div class="col-md-8">
                     <div class="row"><div class="col-md-4 offset-md-4 mt-4 ps-3"><h4>Login</h4></div></div>
                     <div class="card-body">
-                        <form method="POST" action="{{--{{ route('login') }}--}}#">
+                        <form method="POST" action="{{ route('login') }}">
                             @csrf
                             <div class="row mb-3">
                                 <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label>

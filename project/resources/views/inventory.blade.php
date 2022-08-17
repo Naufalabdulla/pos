@@ -58,6 +58,27 @@
         <h6 class="col-1 mt-1">Price</h6>
         <h6 class="col-1 mt-1">Discount</h6>
       </div>
+
+      @foreach ($products as $item)
+          @if($item->inventory_id == 1)
+          <div class="row p-1 m-2 border-bottom" style="width: auto">
+            <div class="col-5 mt-1">{{ $item->name }}</div>
+            <div class="col-2 mt-1">Code</div>
+            <div class="col-1 mt-1">QTY</div>
+            <div class="col-1 mt-1">UOM</div>
+            <div class="col-1 mt-1">Cost</div>
+            <div class="col-1 mt-1">Price</div>
+            <div class="col-1 mt-1">Discount</div>
+          </div>
+          @else
+          @endif
+      @endforeach
+
+      <nav aria-label="navigation page" class="mt-3">
+        <ul class="pagination justify-content-center position-absolute bottom-0 start-50 translate-middle-x mb-5">
+          {{ $products->links() }}
+        </ul>
+      </nav>
     </div>
 
     <div class="tab-pane fade" id="product-tab-pane" role="tabpanel" aria-labelledby="product-tab" tabindex="0">
@@ -68,6 +89,19 @@
         <h6 class="col-2 mt-1">b1</h6>
         <h6 class="col-1 mt-1">UOM</h6>
       </div>
+
+      @foreach ($products as $item)
+          @if($item->inventory_id == 2)
+          <div class="row p-1 m-2 border-bottom" style="width: auto">
+            <div class="col-3 mt-1">{{ $item->name }}</div>
+            <div class="col-3 mt-1">Code</div>
+            <div class="col-3 mt-1">QTY</div>
+            <div class="col-2 mt-1">UOM</div>
+            <div class="col-1 mt-1">Cost</div>
+          </div>
+          @else
+          @endif
+      @endforeach
     </div>
 
     <div class="tab-pane fade" id="outlet-tab-pane" role="tabpanel" aria-labelledby="outlet-tab" tabindex="0">
@@ -157,4 +191,25 @@
         </div>
       </div>
   </div>
+
+{{-- pagination --}}
+
+
+
+<nav aria-label="navigation page" class="mt-3">
+  <ul class="pagination justify-content-center position-absolute bottom-0 start-50 translate-middle-x mb-5">
+    {{ $products->links() }}
+    {{-- <li class="page-item">
+      <a class="page-link" href="#"><span aria-hidden="true">&laquo;</span></a>
+    </li>
+    <li class="page-item"><a class="page-link" href="#">1</a></li>
+    <li class="page-item active" aria-current="page">
+      <a class="page-link" href="#">2</a>
+    </li>
+    <li class="page-item"><a class="page-link" href="#">3</a></li>
+    <li class="page-item">
+      <a class="page-link" href="#"><span aria-hidden="true">&raquo;</span></a>
+    </li> --}}
+  </ul>
+</nav>
 @endsection

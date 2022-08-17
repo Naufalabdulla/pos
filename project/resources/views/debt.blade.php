@@ -6,7 +6,7 @@
   <label class="btn btn-outline-secondary" for="btnradio1">Import</label>
   <input type="radio" class="btn-check" name="btnradio" id="btnradio2">
   <label class="btn btn-outline-secondary" for="btnradio2">Payment history</label>
-  <form action="{{ route('customers.create') }}">
+  <form action="{{ route('member.create') }}">
     <button class="btn btn-success me-4">View Detail</button>
   </form>
 @endsection

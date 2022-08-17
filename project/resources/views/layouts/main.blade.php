@@ -10,14 +10,14 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     
 
-    <title>Laravel</title>
+    <title>Sentra</title>
     
   </head>
   <body>
 
 <div class="container-fluid">
-<div class="row align-items-stretch col-group">
-    <div class="col overflow-hidden bg-primary p-0" style="max-width: 180px; height: 837px">
+<div class="row gy-3 align-items-stretch col-group">
+    <div class="col-md-4 overflow-hidden bg-primary p-0" style="max-width: 180px; height: 837px">
       <div class="container-fluid border-bottom border-secondary px-1 pb-1 pt-2">
         <h4 class="text-light my-2 me-3">Sentra</h4>
       </div>
@@ -26,27 +26,27 @@
           <div class="col p-3 mx-2 my1">
             <a href="{{route('home')}}" class="text-white text-decoration-none fw-semibold">Dashboard</a>
           </div><div class="col p-3 mx-2 my1">
-            <a href="{{route('product')}}" class="text-white text-decoration-none fw-semibold">Products</a>
+            <a href="{{route('product.index')}}" class="text-white text-decoration-none fw-semibold">Products</a>
           </div><div class="col p-3 mx-2 my1">
-            <a href="{{route('sell')}}" class="text-white text-decoration-none fw-semibold">Sell</a>
+            <a href="{{route('sell.index')}}" class="text-white text-decoration-none fw-semibold">Sell</a>
           </div><div class="col p-3 mx-2 my1">
             <a href="{{route('shift')}}" class="text-white text-decoration-none fw-semibold">Shift</a>
           </div><div class="col p-3 mx-2 my1">
-            <a href="{{route('report')}}" class="text-white text-decoration-none fw-semibold">Reports</a>
+            <a href="{{route('report.index')}}" class="text-white text-decoration-none fw-semibold">Reports</a>
           </div><div class="col p-3 mx-2 my1">
-            <a href="{{route('customers.index')}}" class="text-white text-decoration-none fw-semibold">Contact</a>
+            <a href="{{route('member.index')}}" class="text-white text-decoration-none fw-semibold">Contact</a>
           </div><div class="col p-3 mx-2 my1">
-            <a href="{{route('orders')}}" class="text-white text-decoration-none fw-semibold">Order</a>
+            <a href="{{route('customerinv.index')}}" class="text-white text-decoration-none fw-semibold">Order</a>
           </div><div class="col p-3 mx-2 my1">
-            <a href="{{route('payment')}}" class="text-white text-decoration-none fw-semibold">Payment</a>
+            <a href="{{route('payment.index')}}" class="text-white text-decoration-none fw-semibold">Payment</a>
           </div><div class="col p-3 mx-2 my1">
             <a href="{{route('debt')}}" class="text-white text-decoration-none fw-semibold">Debt</a>
           </div><div class="col p-3 mx-2 my1">
-            <a href="{{route('invent')}}" class="text-white text-decoration-none fw-semibold">Inventory</a>
+            <a href="{{route('inventory.index')}}" class="text-white text-decoration-none fw-semibold">Inventory</a>
           </div><div class="col p-3 mx-2 my1">
             <a href="{{route('adjustment')}}" class="text-white text-decoration-none fw-semibold">Adjusment</a>
           </div><div class="col p-3 mx-2 my1">
-            <a href="{{route('sell')}}" class="text-white text-decoration-none fw-semibold">Buy</a>
+            <a href="{{route('sell.index')}}" class="text-white text-decoration-none fw-semibold">Buy</a>
           </div><div class="col p-3 mx-2 my1">
             <a href="{{route('logistics')}}" class="text-white text-decoration-none fw-semibold">Logistics</a>
           </div><div class="col p-3 mx-2 my1">

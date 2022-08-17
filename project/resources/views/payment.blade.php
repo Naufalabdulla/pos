@@ -44,15 +44,19 @@
           <h6 class="col-1 mt-1">NETT</h6>
         </div>
     
-        {{-- @foreach ($collection as $item) --}}
+        @foreach ($payment as $item)
           <div class="row border-bottom p-2 mx-2 mb-1">
-          <div class="col-5">dummy</div>
-          <div class="col-2">2</div>
-          <div class="col-2">277</div>
-          <div class="col-2 text-danger">0</div>
-          <div class="col-1 text-success">277.3</div>
+          @if ($item->type == true)
+           <div class="col-5">Cash</div>   
+          @else
+           <div class="col-5">Credit</div>   
+          @endif
+          <div class="col-2">{{ $item->count }}</div>
+          <div class="col-2">{{ $item->amount }}</div>
+          <div class="col-2 text-danger">{{ $item->MDR }}</div>
+          <div class="col-1 text-success">{{ $item->NETT }}</div>
           </div>  
-        {{-- @endforeach --}}
+        @endforeach
         
         <div class="row fw-bold p-2 mx-2 mb-1">
           <div class="col-5">Total</div>
@@ -248,4 +252,25 @@
     </div>
 
 </div>
+
+{{-- pagination --}}
+
+
+
+<nav aria-label="navigation page" class="mt-3">
+  <ul class="pagination justify-content-center position-absolute bottom-0 start-50 translate-middle-x mb-5">
+    {{ $payment->links() }}
+    {{-- <li class="page-item">
+      <a class="page-link" href="#"><span aria-hidden="true">&laquo;</span></a>
+    </li>
+    <li class="page-item"><a class="page-link" href="#">1</a></li>
+    <li class="page-item active" aria-current="page">
+      <a class="page-link" href="#">2</a>
+    </li>
+    <li class="page-item"><a class="page-link" href="#">3</a></li>
+    <li class="page-item">
+      <a class="page-link" href="#"><span aria-hidden="true">&raquo;</span></a>
+    </li> --}}
+  </ul>
+</nav>
 @endsection

@@ -14,29 +14,18 @@
     <li><a class="dropdown-item" href="#">Export with Transaction</a></li>
   </ul>
 </div>
-<form action="{{ route('customers.create') }}">
+<form action="{{ route('product.create') }}">
     <button class="btn btn-success me-4">add</button>
 </form>
 @endsection
 @section('container')
 
-<ul class="nav nav-tabs d-flex" id="myTab" role="tablist">
-    <li class="nav-item" role="presentation">
-      <button class="nav-link active" id="category-tab" data-bs-toggle="tab" data-bs-target="#category-tab-pane" type="button" role="tab" aria-controls="category-tab-pane" aria-selected="flase">Category</button>
-    </li>
-    <li class="nav-item" role="presentation">
-      <button class="nav-link" id="product-tab" data-bs-toggle="tab" data-bs-target="#product-tab-pane" type="button" role="tab" aria-controls="product-tab-pane" aria-selected="false">Product</button>
-    </li>
-    <li class="nav-item flex-grow-1" role="presentation">
-      <button class="nav-link" id="variant-tab" data-bs-toggle="tab" data-bs-target="#variant-tab-pane" type="button" role="tab" aria-controls="variant-tab-pane" aria-selected="false">Variant</button>
-    </li>
-    <img src="img/burger.svg" alt="">
+<ul>
+    <a href="{{ route('product.index') }}">Product</a>
+    <a href="{{ route('category.index') }}">null</a>
 </ul>
-  <div class="tab-content" id="myTabContent">
-    <div class="tab-pane fade show active" id="category-tab-pane" role="tabpanel" aria-labelledby="category-tab" tabindex="0">
-      {{-- @include('contacts.member') --}}
-    </div>
-    <div class="tab-pane fade" id="product-tab-pane" role="tabpanel" aria-labelledby="product-tab" tabindex="0">
+  {{-- <div class="tab-content" id="myTabContent">
+    <div class="tab-pane fade" id="product-tab-pane" role="tabpanel" aria-labelledby="product-tab" tabindex="0"> --}}
       <div class="d-flex row bg-light pt-1 p-1 m-2 border" style="width: auto">
         <h6 class="col-3 mt-1">Product</h6>
         <h6 class="col-2 mt-1">code</h6>
@@ -45,16 +34,16 @@
         <h6 class="col-1 mt-1">Price</h6>
         <h6 class="col-1 mt-1">Realease</h6>
       </div>
-            {{-- @foreach ($Supplies as $item)
+            @foreach ($products as $item)
             <div class="border-bottom p-2 mb-1">
               <input class="form-check-input" type="checkbox" value="" id="check">
               <label for="check">
-                {{$item->name}}
+                <a href="#">{{$item->name}}</a>
               </label>  
             </div>          
-            @endforeach --}}
+            @endforeach
     </div>
-    <div class="tab-pane fade" id="variant-tab-pane" role="tabpanel" aria-labelledby="variant-tab" tabindex="0">
+    {{-- <div class="tab-pane fade" id="variant-tab-pane" role="tabpanel" aria-labelledby="variant-tab" tabindex="0">
       <div class="d-flex row bg-light pt-1 p-1 m-2 border" style="width: auto">
         <h6 class="col-4 mt-1">Name</h6>
         <h6 class="col-1 mt-1">Type</h6>
@@ -63,7 +52,7 @@
         <h6 class="col-1 mt-1">Last Buy</h6>
         <h6 class="col-2 mt-1">Selling Price</h6>
         <h6 class="col-1 mt-1">Inventory</h6>
-      </div>
+      </div> --}}
             {{-- @foreach ($Supplies as $item)
             <div class="border-bottom p-2 mb-1">
               <input class="form-check-input" type="checkbox" value="" id="check">
@@ -72,7 +61,28 @@
               </label>  
             </div>          
             @endforeach --}}
-    </div>
-  </div>
+    {{-- </div>
+  </div>--}}
+
+  {{-- pagination --}}
+
+
+
+<nav aria-label="navigation page" class="mt-3">
+  <ul class="pagination justify-content-center position-absolute bottom-0 start-50 translate-middle-x mb-5">
+    {{ $products->links() }}
+    {{-- <li class="page-item">
+      <a class="page-link" href="#"><span aria-hidden="true">&laquo;</span></a>
+    </li>
+    <li class="page-item"><a class="page-link" href="#">1</a></li>
+    <li class="page-item active" aria-current="page">
+      <a class="page-link" href="#">2</a>
+    </li>
+    <li class="page-item"><a class="page-link" href="#">3</a></li>
+    <li class="page-item">
+      <a class="page-link" href="#"><span aria-hidden="true">&raquo;</span></a>
+    </li> --}}
+  </ul>
+</nav>
 
 @endsection

@@ -41,6 +41,7 @@
 </div>
   
 <div class="row g-3">
+  {{-- Product Item --}}
     <div class="col-4">
         <div class="vstack gap-3">
             <div class="nav nav-tabs d-flex" id="mytab" role="tablist">
@@ -60,43 +61,84 @@
             <div class="container tab-content" id="mytabcontent">
                 <div class="tab-pane fade show active" id="Top-tab-pane" role="tabpanel" aria-labelledby="Top-tab" tabindex="0">
                     <div class="row gx-4 gy-2">
-                        {{-- @foreach ($contacts as $item) --}}
-                            <div class="col-4">
-                                <div class="border" style="max-height: 100px">
-                                    {{-- {{$item->name}} --}}yes
-                                </div>
-                            </div>
-                        {{-- @endforeach --}}
+                        @foreach ($products as $item)
+                        @if ($item->category_id == 1)
+                          <div class="col-4">
+                            <form action="{{route('sell.store')}}" method="POST">
+                              @csrf
+                              <div class="border d-flex" style="max-height: 100px">
+                              <button class="btn flex-fill" type="submit" value="{{ $item->id }}" name="products_id">
+                                  {{$item->name}}
+                              </button>
+                              </div>
+                            </form>  
+                          </div>
+                        @endif
+                        @endforeach
+                        
+                        <nav aria-label="navigation page" class="mt-3">
+                          <ul class="pagination justify-content-center">
+                            {{ $products->links() }}
+                          </ul>
+                        </nav>
                     </div>
                 </div>
                 
                 <div class="tab-pane fade" id="Shoes-tab-pane" role="tabpanel" aria-labelledby="Shoes-tab" tabindex="0">
-                    <div class="row gx-4 gy-2">
-                        {{-- @foreach ($contacts as $item) --}}
-                            <div class="col-4">
-                                <div class="border" style="max-height: 100px">
-                                    {{-- {{$item->name}} --}}yes yes
-                                </div>
+                  <div class="row gx-4 gy-2">
+                    @foreach ($products as $item)
+                    @if ($item->category_id == 2)
+                        <div class="col-4">
+                          <form action="{{route('sell.store')}}" method="POST">
+                            @csrf
+                            <div class="border d-flex" style="max-height: 100px">
+                            <button class="btn flex-fill" type="submit" value="{{ $item->id }}" name="products_id">
+                               {{$item->name}}
+                            </button>
                             </div>
-                        {{-- @endforeach --}}
-                    </div>
+                          </form>  
+                        </div>
+                        @endif
+                    @endforeach
+                    
+                    <nav aria-label="navigation page" class="mt-3">
+                      <ul class="pagination justify-content-center">
+                        {{ $products->links() }}
+                      </ul>
+                    </nav>
+                </div>
                 </div>
 
                 <div class="tab-pane fade" id="Acc-tab-pane" role="tabpanel" aria-labelledby="Acc-tab" tabindex="0">
-                    <div class="row gx-4 gy-2">
-                        {{-- @foreach ($contacts as $item) --}}
-                            <div class="col-4">
-                                <div class="border" style="max-height: 100px">
-                                    {{-- {{$item->name}} --}}yes yes yes
-                                </div>
+                  <div class="row gx-4 gy-2">
+                    @foreach ($products as $item)
+                    @if ($item->category_id == 3)
+                        <div class="col-4">
+                          <form action="{{route('sell.store')}}" method="POST">
+                            @csrf
+                            <div class="border d-flex" style="max-height: 100px">
+                            <button class="btn flex-fill" type="submit" value="{{ $item->id }}" name="products_id">
+                               {{$item->name}}
+                            </button>
                             </div>
-                        {{-- @endforeach --}}
-                    </div>
+                          </form>  
+                        </div>
+                    @endif    
+                    @endforeach
+                    
+                    <nav aria-label="navigation page" class="mt-3">
+                      <ul class="pagination justify-content-center">
+                        {{ $products->links() }}
+                      </ul>
+                    </nav>
+                </div>
                 </div>
             </div>
         </div>
     </div>
+  {{-- Product Item --}}
 
+  {{-- Cart --}}
     <div class="col-5">
         <div class="border">
             <div class="container align-items-center hstack gap-2 p-2">
@@ -115,7 +157,17 @@
                 <div class="px-3">Total</div>
             </div>
 
-            <div style="height: 250px"></div>
+              {{-- Item Cart --}}
+            <div class="overflow-auto" style="height: 250px">
+              @if (count($carts) > 0)
+              <div class="row g-0">
+                @foreach ($carts as $item)
+                  <div class="col-12 border-bottom"><a href="#">{{$item->product->name}}</a></div>
+                @endforeach  
+              </div>
+              @else
+              @endif
+            </div>
         </div>
 
         <div class="d-flex align-items-start border" style="max-width: 200px">
@@ -137,21 +189,20 @@
 
         <div class="row g-2 my-2">
             <div class="col-3">
-              <div class="border bg-light d-flex">
-              <a class="btn flex-fill p-3" data-bs-toggle="modal" href="#fullfillModalToggle" role="button">Fullfillment</a></div>
+              <div class="border bg-light d-flex"><a class="btn flex-fill p-3" data-bs-toggle="modal" href="#fullfillModalToggle" role="button">Fullfillment</a></div>
             </div>
             
             <div class="col-2">
-              <div class="border bg-light d-flex">
-                <a class="btn flex-fill p-3" data-bs-toggle="modal" href="#noteModalToggle" role="button">Note</a></div>
+              <div class="border bg-light d-flex"><a class="btn flex-fill p-3" data-bs-toggle="modal" href="#noteModalToggle" role="button">Note</a></div>
             </div>
 
             <div class="col-3">
-              <div class="border bg-light d-flex">
-                <a class="btn flex-fill p-3" data-bs-toggle="modal" href="#clearModalToggle" role="button">Clear</a></div>
+              <div class="border bg-light d-flex"><a class="btn flex-fill p-3" data-bs-toggle="modal" href="#clearModalToggle" role="button">Clear</a></div>
             </div>
 
-            <div class="col-4"><div class="border bg-success p-3">Pay</div></div>
+            <div class="col-4">
+              <div class="border bg-success d-flex"><a class="btn flex-fill p-3" data-bs-toggle="modal" href="#payModalToggle" role="button">Pay</a></div>
+            </div>
         </div>
     </div>
 </div>
@@ -254,6 +305,27 @@
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">cancel</button>
+    </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="payModalToggle" aria-hidden="true" aria-labelledby="payModalToggleLabel" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+    <div class="modal-header">
+        <h5 class="modal-title" id="clearModalToggleLabel">Modal 1</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+    <div class="modal-body">
+        first example
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Cancel</button>
+        <form action="#" method="post">
+          <button type="submit" class="btn btn-outline-success">Pay</button> 
+        </form>
+        
     </div>
     </div>
   </div>

@@ -8,7 +8,7 @@
         </form>
     </div>
     <div class="justify-content-end ms-2">
-        <form action="{{ route('customers.store') }}"  method="POST">
+        <form action="{{ route('member.store') }}"  method="POST">
             <input type="submit" value="save" class="btn btn-outline-success">
         </form>
     </div>

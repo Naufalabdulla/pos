@@ -1,8 +1,17 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CartController;
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\MemberController;
-
+use App\Http\Controllers\ReportController;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CstmInvcController;
+use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\InventoryController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,44 +24,26 @@ use App\Http\Controllers\MemberController;
 */
 
 
-$product = [
-    1 => [
-        'name' => 'baju',
-        'image' => '....'
-    ],
-    2 => [
-        'name' => 'baju',
-        'image' => '....'
-    ],
-    3 => [
-        'name' => 'baju',
-        'image' => '....'
-    ]
-    ];
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('auth');
 
-Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Route::get('/contact', [ContactController::class, 'index'])->name('contact');
+Route::resource('member', MemberController::class);
 
-Route::resource('/customers', MemberController::class);
+Route::resource('product', ProductController::class);
 
-Route::get('/test', function(){
-    return view('partials.form');
-});
+Route::resource('category', CategoryController::class);
+
+Route::resource('sell', CartController::class);
+
+Route::resource('report', ReportController::class);
 
 Route::get('/shows', function(){
     return view('partials.show');
 })->name('show');
 
-Route::get('/orders', function(){
-    return view('order');
-})->name('orders');
+Route::resource('customerinv', CstmInvcController::class);
 
-Route::get('/sell', function(){
-    return view('sells');
-})->name('sell');
-
-Route::get('/payment', function(){
-    return view('payment');
-})->name('payment');
+Route::resource('payment', PaymentController::class);
 
 Route::get('/adjustment', function(){
     return view('adjustment');
@@ -78,18 +69,18 @@ Route::get('/debt', function(){
     return view('debt');
 })->name('debt');
 
-Route::get('/reports',function(){
-    return view('report');
-})->name('report');
+Route::resource('inventory', InventoryController::class);
 
-Route::get('/inventory', function(){
-    return view('inventory');
-})->name('invent');
+Route::get('/login', [LoginController::class, 'index'])->name('login');
 
-Route::get('/product', function(){
-    return view('product');
-})->name('product');
+Route::post('/login', [LoginController::class, 'authenticate'])->name('login')->middleware('guest');
 
-Route::get('/hahalol', function(){
-    return view('auth.login');
-});
+Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+
+Route::resource('register', RegisterController::class)->only(['index', 'store']);
+
+// Route::post('register', [RegisterController::class, 'store'])->name('register');
+
+Route::get('/form', function(){
+    return view('create');
+})->name('form');
